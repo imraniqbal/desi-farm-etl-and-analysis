@@ -1,37 +1,59 @@
-# 🐄 End-to-End Data Analytics: Desi Dairy Farm (2019–2025)
+# 🐄 End-to-End Data Analytics & Business Case Study: Desi Dairy Farm (2019–2025)
 
 ## 📌 Project Overview
-This repository contains an end-to-end data engineering and analytics portfolio project based on a 7-year real-world financial and operational ledger. The project is divided into two core phases: 
-1. **ETL Pipeline:** Extracting and cleaning raw, unstructured, multilingual data from 13 messy Excel files.
-2. **Case Study & Analytics:** Analyzing the cleaned data to extract business insights, operational costs, and profitability metrics.
+This repository presents a comprehensive, end-to-end data engineering and business analytics case study based on **7 years of authentic financial and operational ledgers** from *Desi Farm (SMC-Private) Limited*. 
 
-## 🏢 Business Context & The Data
-The dataset originates from the daily operational ledgers of **Desi Farm (SMC-Private) Limited**. As a continuous log spanning from 2019 to 2025, it captures authentic agricultural expenses, including feed, fodder, veterinary medicines, maintenance, and salaries. 
+Rather than relying on sanitized or simulated datasets, this project dives deep into a real-world agricultural business to uncover why a farm with millions in livestock assets struggled with cash flow, ultimately providing a data-driven root cause analysis backed by dairy industry standards.
 
-Unlike sanitized practice datasets, these are authentic logs. A unique challenge of this dataset is the `Description` column, which contains a natural, real-world mix of English, Roman Urdu, and standard Urdu script, alongside specific references to local vendors and farm workers.
+The project is structured into two core phases:
+1. **Data Engineering (ETL Pipeline):** Extracting, cleaning, and transforming raw, unstructured, multilingual data (English, Roman Urdu, Urdu script) from 13 disparate Excel sheets into analysis-ready datasets.
+2. **Business Analytics & Case Study (EDA):** Differentiating operational cash flows from capital gains, assessing diet efficiency, and conducting a rigorous root cause analysis using FAO and NRC dairy management benchmarks.
+
+---
 
 ## 🗂️ Repository Structure
-This repository utilizes a flat, accessible structure containing two primary Python notebooks and the resulting datasets:
+- `data-cleaning-etl-desi-dairy-farm.ipynb`: The ETL pipeline script detailing the programmatic extraction and structuring of messy Excel ledgers.
+- `desi-farm-case-study-exploratory-data-analysis.ipynb`: The master exploratory data analysis (EDA) notebook featuring time-series charts, dual-axis efficiency ratios, scatter regressions, and business conclusions.
+- `Desi_Farm_Expenses.csv`: The cleaned, analysis-ready dataset for operational expenses.
+- `Desi_Farm_Income.csv`: The cleaned, analysis-ready dataset for milk and operational revenues.
 
-* `etl_pipeline.ipynb`: The Data Engineering notebook detailing the extraction and transformation of the raw Excel files.
-* `case_study_analysis.ipynb`: The Data Analytics notebook containing exploratory data analysis (EDA), time-series forecasting, and visualizations.
-* `Desi_Farm_Expenses.csv`: The cleaned, analysis-ready dataset for farm expenses.
-* `Desi_Farm_Income.csv`: The cleaned, analysis-ready dataset for farm income.
+---
 
-## 🚀 Phase 1: The ETL Pipeline
-The raw data consisted of 13 separate Excel files featuring unstructured layouts, floating charts, and irregular headers. The ETL script (`etl_pipeline.ipynb`) utilizes **Python (Pandas)** to programmatically resolve these challenges:
-* **Extraction:** Bypassed irregular spreadsheet formatting and automated the extraction across all 13 files.
-* **Structural Separation:** Successfully separated income (logged monthly) and expenses (logged daily/regularly) into two distinct DataFrames.
-* **Transformation:** Standardized column names, dropped null artifacts, and converted string dates into standardized datetime objects.
+## 🚀 Phase 1: The ETL Pipeline (Data Engineering)
+The raw source data consisted of 13 separate Excel files featuring irregular headers, floating charts, and unstructured text logs. The ETL script programmatically resolves these hurdles using **Python (Pandas)**:
+* **Extraction & Structuring:** Automated ingestion across all 13 files, separating monthly income logs from daily/regular expense logs into clean, normalized DataFrames.
+* **Text Standardization:** Handled multilingual free-text description logs containing local vendor names, worker salaries, and feed descriptions.
+* **Datetime Parsing:** Converted irregular date strings into standardized datetime objects to enable smooth time-series aggregation.
 
-## 📊 Phase 2: Case Study & Analytics (Upcoming)
-The analytics phase (`case_study_analysis.ipynb`) will leverage the cleaned data to answer critical business questions, focusing on:
-* **Cost Drivers:** Identifying the largest operational expenses (e.g., feed vs. electricity) and their seasonal variations.
-* **Profitability Margins:** Merging the income and expense timelines to visualize net monthly margins.
-* **Text Categorization:** Applying NLP techniques to extract structured insights from the multilingual, free-text description logs.
+---
+
+## 📊 Phase 2: Business Case Study & Analytics
+The analytical notebook answers critical business and financial questions across a 77-month lifecycle (July 2019 to October 2025):
+
+### 1. The Cash Flow Illusion (Bulk Purchasing)
+Identified how seasonal bulk purchasing of feed and fodder (e.g., silage and wheat straw during harvest months) heavily skews monthly cash flow negatively, which in turn subsidizes and creates apparent profitability in subsequent months.
+
+### 2. The True Cost of Farming (Diet vs. Everything Else)
+Demonstrated that separating Feed and Fodder dilutes their real impact. Grouping them into a single **"Diet"** category revealed that **68.2% of all operational expenses** are consumed exclusively by animal nutrition.
+
+### 3. Comprehensive 77-Month Executive Audit
+Calculated the true enterprise net worth by combining operational cash flows, livestock capital trading profits, and active on-farm inventory (**5.0 Million PKR** standing livestock assets), yielding an **Ultimate Grand Net Profit of 1.5 Million PKR** over 77 months at a 2.58% profit margin.
+
+### 4. Operational Efficiency (Milk-to-Feed Ratio)
+* Evaluated month-by-month efficiency by tracking Diet Cost as a percentage of Milk Income (skipping December 2019 outliers).
+* Revealed an alarming average of **83.2%** of milk revenue going directly to feed costs—well above the healthy agricultural threshold.
+
+### 5. Root Cause Analysis & Industry Citations
+* **The "Procurement to Production" Death Spiral:** Proved via scatter regression analysis that month-to-month erratic purchasing and lack of an on-site **Total Mixed Ration (TMR)** caused severe dietary instability and rumen stress, suppressing milk yields.
+* **Industry Benchmarks:** Validated findings using *FAO Dairy Production Guidelines* (recommending a 60%–70% diet cost limit) and *NRC Nutrient Requirements of Dairy Cattle* to demonstrate the biological and financial impact of inconsistent nutrition.
+
+---
 
 ## 🛠️ Tools & Technologies
-* **Language:** Python
+* **Language:** Python 3
 * **Libraries:** Pandas, NumPy, Matplotlib, Seaborn
-* **Environment:** Kaggle Notebooks
-* **Data Source:** [Dairy Farm Operations & Financial Ledger 2019–2025 (Kaggle)](https://www.kaggle.com/datasets/imran495/dairy-farm-operations-and-financial-ledger-20192025)
+* **Environment:** Kaggle Notebooks & GitHub Version Control
+* **Data Source:** Authentic operational ledgers of Desi Farm (2019–2025)
+
+---
+*Authored by Imran Iqbal (بابا جی) — Professional Data Analyst & Online Mathematics Tutor.*
