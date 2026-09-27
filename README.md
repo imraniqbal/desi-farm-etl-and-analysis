@@ -56,4 +56,4 @@ Calculated the true enterprise net worth by combining operational cash flows, li
 * **Data Source:** Authentic operational ledgers of Desi Farm (2019–2025)
 
 ---
-*Authored by Imran Iqbal (بابا جی) — Professional Data Analyst & Online Mathematics Tutor.*
+*Authored by Imran Iqbal — Professional Data Analyst & Online Mathematics Tutor.*
